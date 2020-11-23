@@ -1,0 +1,331 @@
+body {
+  font-size: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+pre {
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  max-height: 250px;
+  overflow: scroll;
+}
+
+button {
+  margin: 10px 0px;
+  border: 1px solid #282b2e;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 3px;
+  color: #282b2e;
+  font-weight: normal;
+  box-shadow: 4px 4px #282b2e;
+  width: 100%;
+  outline: none;
+}
+
+.error-box {
+  border: 1px solid red;
+  background-color: rgba(255, 192, 203, 0.25);
+  padding: 12px;
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: 4px 4px #282b2e;
+  }
+  100% {
+    box-shadow: 6px 6px #282b2e;
+  }
+}
+
+button:focus {
+  border: 1px solid rgb(77, 77, 229);
+  box-shadow: 6px 6px #282b2e;
+  animation: shadow 600ms;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+form {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 5px;
+}
+
+form label {
+  text-align: right;
+}
+
+label {
+  display: block;
+  font-family: monospace;
+  margin: 0px 0px 15px 0px;
+  text-align: justify;
+  justify-content: center;
+  padding: 6px;
+}
+
+label:hover {
+  background-color: rgba(205, 205, 245, 0.25);
+}
+
+label > span {
+  width: 100px;
+  font-weight: bold;
+  float: left;
+  padding-top: 8px;
+  padding-right: 5px;
+}
+
+input {
+  width: 100%;
+  font-family: monospace;
+}
+
+input[required] {
+  background-image: radial-gradient(#f00 15%, transparent 16%),
+    radial-gradient(#f00 15%, transparent 16%);
+  background-size: 1em 1em;
+  background-position: right top;
+  background-repeat: no-repeat;
+  border: 1px solid #c2c2c2;
+  box-shadow: 1px 1px 4px #ebebeb;
+  border-radius: 3px;
+  padding: 4px;
+  outline: none;
+}
+
+
+input:focus {
+  border: 1px solid rgb(77, 77, 229);
+}
+
+input[type="submit"] {
+  visibility: hidden;
+  display: block;
+  height: 0px;
+}
+
+fieldset {
+  border: 0px solid #c2c2c2;
+  padding-left: 4px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 5px;
+}
+
+.data-box {
+  border: 1px solid lightblue;
+  background-color: rgba(124, 212, 128, 0.25);
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+section {
+  padding: 20px 80px 20px 20px;
+  background-color: #a3d2df;
+  perspective: 1000px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  /* operation card */
+  section > div:nth-child(1) {
+    min-width: 50%;
+  }
+}
+
+/* operation card */
+section > div:nth-child(1) {
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.15);
+  border-left: 40px solid #eee;
+  padding: 20px 40px;
+  font-family: "Space Mono", monospace, sans-serif;
+  color: #282b2e;
+  font-size: 1em;
+  margin: auto;
+  min-width: 90%;
+}
+
+/* Icon */
+section img {
+  justify-content: center;
+  padding-right: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+section.query {
+  background-color: #a3d2df;
+}
+
+section.mutation {
+  background-color: #e8d380;
+}
+
+section.subscription {
+  background-color: #ccffcc;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+  }
+  25% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 4px 4px #282b2e;
+  }
+  50% {
+    box-shadow: 0px 0px 4px 4px rgba(214, 66, 146, 0.5);
+  }
+  100% {
+    box-shadow: 4px 4px #282b2e;
+  }
+}
+
+.login-hint {
+  animation: pulse 600ms, glow 2s;
+}
+
+a {
+  color: #50abec;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading:before {
+  content: '';
+  box-sizing: border-box;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+  border: 2px solid #ccc;
+  border-top-color: #000;
+  animation: loading 0.6s linear infinite;
+}
+
+header > div {
+  position: absolute;
+  opacity: 0.1;
+  left: 0;
+  right: 0;
+  top: -100;
+  max-width: 1400px;
+  margin: auto;
+}
+
+header > div > img {
+  transform: rotate(-26deg);
+  width: 25%;
+}
+
+header {
+  background-color: #f26b00;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* toast */
+/* The snackbar - position it at the bottom and in the middle of the screen */
+.snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: rgb(45, 206, 0); /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+.snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "onegraph-relay-starter-export",
+  "description": "A starting point to use React, Relay, and all of the services OneGraph supports",
+  "license": "ISC",
+  "version": "1.0.0",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "onegraph-auth": "3.3.1",
+    "onegraph-subscription-client": "3.3.0",
+    "react": "0.0.0-experimental-4ead6b530",
+    "react-dom": "0.0.0-experimental-4ead6b530",
+    "react-error-boundary": "3.0.2",
+    "react-relay": "0.0.0-experimental-8058ef82",
+    "react-scripts": "3.4.1",
+    "relay-config": "10.0.1",
+    "relay-runtime": "10.0.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.2",
+    "graphql-json-to-sdl": "0.2.3",
+    "babel-plugin-relay": "10.0.1",
+    "graphql": "^14.6.0",
+    "relay-compiler": "10.0.1"
+  },
+  "scripts": {
+    "start": "sh scripts/start.sh",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "relay": "yarn run relay-compiler --schema ./schema.graphql --src ./src/ --watchman false $@",
+    "convert-schema-to-sdl": "graphql-json-to-sdl ./graphql_schema.json ./schema.graphql"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": false,
+    "jsxBracketSameLine": true,
+    "printWidth": 80
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
