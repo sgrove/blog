@@ -1,1 +1,1 @@
-var isAlsoJs = true
+/* And you can see the changes already! */
