@@ -51,6 +51,9 @@ export const PaginatedGithubRepositoriesContainer = createPaginationContainer(
     edges {
       repo: node {
         ...Repository_fragment
+        issues(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+          totalCount
+        }
       }
     }
     totalCount
