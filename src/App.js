@@ -3,18 +3,22 @@ import React from "react";
 import { RelayEnvironmentProvider } from "react-relay/hooks";
 import RelayEnvironment from "./RelayEnvironment";
 import Header from "./Header";
-import FindMeOnGitHubQuery from "./FindMeOnGitHub";
-import RemoteFile_GetFileShaQuery from "./RemoteFile_GetFileSha";
+import CommentNotificationSubscription from "./CommentNotification";
+import PostsQuery from "./Posts";
+import ReplyMutation from "./Reply";
 
 function App() {
   return (
     <>
       <Header />
-      <section className="query">
-        <FindMeOnGitHubQuery  />
+      <section className="subscription">
+        <CommentNotificationSubscription repoOwner={null} repoName={null} />
       </section>
       <section className="query">
-        <RemoteFile_GetFileShaQuery repoName={null} repoOwner={null} branchAndFilePath={null} />
+        <PostsQuery name={null} owner={null} labels={null} />
+      </section>
+      <section className="mutation">
+        <ReplyMutation subjectId={null} body={null} />
       </section>
     </>
   );

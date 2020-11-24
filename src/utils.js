@@ -142,3 +142,18 @@ export function stringifyRelayData(data) {
 
   return JSON.stringify(helper(data), null, 2);
 }
+
+// Used to show which file contains an exported component
+// for easier editing
+export const LocationNote = ({location}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24">
+      <title>Edit me at: {location}</title>
+      <path d="M12 2c2.131 0 4 1.73 4 3.702 0 2.05-1.714 4.941-4 8.561-2.286-3.62-4-6.511-4-8.561C8 3.73 9.869 2 12 2zm0-2C8.852 0 6 2.553 6 5.702 6 8.85 8.602 12.609 12 18c3.398-5.391 6-9.15 6-12.298C18 2.553 15.149 0 12 0zm0 8a2 2 0 11-.001-3.999A2 2 0 0112 8zm8 12c0 2.209-3.581 4-8 4s-8-1.791-8-4c0-1.602 1.888-2.98 4.608-3.619l1.154 1.824c-.401.068-.806.135-1.178.242-3.312.949-3.453 2.109-.021 3.102 2.088.603 4.777.605 6.874-.001 3.619-1.047 3.164-2.275-.268-3.167-.296-.077-.621-.118-.936-.171l1.156-1.828C18.112 17.02 20 18.398 20 20z"></path>
+    </svg>
+  );
+};
