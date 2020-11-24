@@ -6,6 +6,7 @@ import {useLazyLoadQuery} from 'react-relay/hooks';
 import { auth } from './Config';
 import {ErrorFallback, stringifyRelayData, updateFormVariables} from './utils';
 import graphql from 'babel-plugin-relay/macro';
+import SimpleObject from './SimpleObject'
 
 
 
@@ -14,15 +15,7 @@ const REMOTE_FILE__GET_FILE_SHA_QUERY = graphql`
     gitHub {
       repository(name: $repoName, owner: $repoOwner) {
         object_: object(expression: $branchAndFilePath) {
-          __typename
-          ... on GitHubBlob {
-            sha: oid
-            text
-            isBinary
-            isTruncated
-            byteSize
-            abbreviatedOid
-          }
+          ...SimpleObject_fragment
         }
       }
     }
@@ -45,12 +38,13 @@ export function RemoteFile_GetFileShaQuery(props) {
     </div>
   ) : null;
 
-  
+  const simpleObjectUses = <SimpleObject  object={data?.gitHub?.repository?.object_} />;
 
   return (
     <div>
       {dataEl}
-      
+      <h4>SimpleObjectUses</h4>
+      {simpleObjectUses}
     </div>
   );
 }
