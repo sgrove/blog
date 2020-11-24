@@ -79,6 +79,7 @@ const FIND_ME_ON_GIT_HUB_QUERY = graphql`
     me {
       github {
         id
+        databaseId
         nickname: login
         ...FindMeOnGitHub_githubForPaginatedRepositories @arguments
       }
