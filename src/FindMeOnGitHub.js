@@ -49,6 +49,8 @@ export const PaginatedGithubRepositoriesContainer = createPaginationContainer(
       node {
         id
         nameWithOwner
+        sshUrl
+        url
       }
     }
     totalCount
