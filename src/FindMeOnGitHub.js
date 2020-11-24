@@ -6,13 +6,15 @@ import {useLazyLoadQuery} from 'react-relay/hooks';
 import { auth } from './Config';
 import {ErrorFallback, stringifyRelayData} from './utils';
 import graphql from 'babel-plugin-relay/macro';
+import {createPaginationContainer} from 'react-relay';
+import Repository from './Repository'
 
 
 export function PaginatedGithubRepositories(props) {
   const {relay, githubForPaginatedRepositories} = props;
   const [isLoading, setIsLoading] = React.useState(false);
 
-  
+  const repositoryUses = githubForPaginatedRepositories?.repositories?.edges?.map((item, idx) => <Repository key={item?.repo?.id || idx} repository={item?.repo} />);
 
   const loadMoreCount = 2;
 
@@ -20,7 +22,8 @@ export function PaginatedGithubRepositories(props) {
     <div>
       <div className="data-box">
         <pre>{stringifyRelayData(githubForPaginatedRepositories?.repositories)}</pre>
-        
+        <h4>RepositoryUses</h4>
+        {repositoryUses}
       </div>
       <button
         className={isLoading ? "loading" : null}
@@ -46,11 +49,8 @@ export const PaginatedGithubRepositoriesContainer = createPaginationContainer(
   id
   repositories(first: $count, orderBy: {field: CREATED_AT, direction: DESC}, affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], after: $cursor) @connection(key: "FindMeOnGitHub_githubForPaginatedRepositories_repositories") {
     edges {
-      node {
-        id
-        nameWithOwner
-        sshUrl
-        url
+      repo: node {
+        ...Repository_fragment
       }
     }
     totalCount
