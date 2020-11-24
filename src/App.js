@@ -4,6 +4,7 @@ import { RelayEnvironmentProvider } from "react-relay/hooks";
 import RelayEnvironment from "./RelayEnvironment";
 import Header from "./Header";
 import FindMeOnGitHubQuery from "./FindMeOnGitHub";
+import RemoteFile_GetFileShaQuery from "./RemoteFile_GetFileSha";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       <Header />
       <section className="query">
         <FindMeOnGitHubQuery  />
+      </section>
+      <section className="query">
+        <RemoteFile_GetFileShaQuery repoName={null} repoOwner={null} branchAndFilePath={null} />
       </section>
     </>
   );
