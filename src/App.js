@@ -15,7 +15,7 @@ function App() {
         <CommentNotificationSubscription repoOwner={null} repoName={null} />
       </section>
       <section className="query">
-        <PostsQuery name={null} owner={null} labels={null} />
+        <PostsQuery name={null} owner={null} labels={null} createdBy={null} />
       </section>
       <section className="mutation">
         <ReplyMutation subjectId={null} body={null} />

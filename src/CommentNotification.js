@@ -106,7 +106,7 @@ export default function CommentNotificationSubscription(props) {
 
   return (
     <div>
-      <h3>CommentNotificationSubscription</h3>
+      <h3>CommentNotificationSubscription <LocationNote location={'CommentNotification.js:<CommentNotification>'} /></h3>
       {formEl}
       {actionButton}
       {dataEl}
